@@ -10,14 +10,16 @@ Featured Project Component
 
 import React from 'react';
 import { Link } from 'react-router';
+import Thumbnail from '../../components/thumbnail';
 
 const FeaturedProject = (() =>
   <section className="home-featured">
     <h1 className="secondary-kicker">Featured Project</h1>
     <div className="home-featured-images">
-      <img
+      <Thumbnail
         alt="Steelpan Vibrations"
-        src="/assets/featured-projects/featured-project-20170829-steelpan_vibrations.jpg"
+        src="//zooniverse.org/assets/featured-projects/featured-project-20170829-steelpan_vibrations.jpg"
+        width={800}
       />
     </div>
     <h2 className="secondary-headline">Steelpan Vibrations</h2>
