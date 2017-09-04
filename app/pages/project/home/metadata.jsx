@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import TalkStatus from './talk-status';
 
+import translations from '../translations';
+
 class ProjectMetadataStat extends React.Component {
   render() {
     return (
@@ -73,7 +75,7 @@ export default class ProjectMetadata extends React.Component {
       <div className="project-home-page__container">
         <div className="project-metadata">
           <Link to={statsLink}>
-            <span>{project.display_name}{' '}Statistics</span>
+            <span>{translations.strings.project.title || project.display_name}{' '}Statistics</span>
           </Link>
 
           {this.renderStatus()}

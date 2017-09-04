@@ -7,7 +7,8 @@ Translate = require 'react-translate-component'
 Thumbnail = require('../../components/thumbnail').default
 classnames = require 'classnames'
 PotentialFieldGuide = require './potential-field-guide'
-`import SOCIAL_ICONS from '../../lib/social-icons'`
+`import SOCIAL_ICONS from '../../lib/social-icons';`
+translations = require('./translations').default
 
 counterpart.registerTranslations 'en',
   project:
@@ -89,10 +90,10 @@ ProjectPage = React.createClass
     if betaApproved
       <div>
         <p>Under Review</p>
-        {@props.project.display_name}
+        {translations.strings.project.title || @props.project.display_name}
       </div>
     else
-      @props.project.display_name
+      translations.strings.project.title || @props.project.display_name
 
   render: ->
     rearrangedLinks = @props.project.urls.sort (a, b) => a.path? & !b.path? ? 1 : 0
@@ -129,7 +130,7 @@ ProjectPage = React.createClass
           <a href={@props.project.redirect} className="tabbed-content-tab" target="_blank">
             {if @props.projectAvatar?
               <Thumbnail src={@props.projectAvatar.src} className="avatar" width={AVATAR_SIZE} height={AVATAR_SIZE} />}
-            Visit {@props.project.display_name}
+            Visit {translations.strings.project.title || @props.project.display_name}
           </a>
         else
           <IndexLink to="#{projectPath}" activeClassName="active" className={avatarClasses} onClick={logClick?.bind this, 'project.nav.home'}>

@@ -5,6 +5,7 @@ apiClient = require 'panoptes-client/lib/api-client'
 counterpart = require 'counterpart'
 isAdmin = require '../../lib/is-admin'
 ProjectPage = require './project-page'
+translations = require('./translations').default
 
 counterpart.registerTranslations 'en',
   loading: '(Loading)'
@@ -122,7 +123,8 @@ ProjectPageController = React.createClass
             awaitProjectAvatar,
             awaitProjectCompleteness,
             awaitProjectRoles,
-            awaitPreferences
+            awaitPreferences,
+            translations.load('project', project.id, 'es')
           ]).then(([background, owner, pages, projectAvatar, projectIsComplete, projectRoles, preferences]) =>
               @setState({ background, owner, pages, projectAvatar, projectIsComplete, projectRoles, preferences })
               @getSelectedWorkflow(project, preferences)
